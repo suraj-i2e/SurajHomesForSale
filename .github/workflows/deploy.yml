@@ -35,4 +35,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: production-build
-        path: dist/surajhomesforsale  # Change this to your app's build path
+        path: dist/angular.io-example  # Change this to your app's build path
