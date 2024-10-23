@@ -1,0 +1,38 @@
+name: Angular CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '20'  # Change this to your desired Node.js version
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run tests
+      run: npm test -- --watch=false --bail
+
+    - name: Build the application
+      run: npm run build --prod
+
+    - name: Upload production build
+      uses: actions/upload-artifact@v2
+      with:
+        name: production-build
+        path: dist/surajhomesforsale  # Change this to your app's build path
