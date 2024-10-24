@@ -5,7 +5,7 @@ import { HousingLocation } from './housing-location';
   providedIn: 'root'
 })
 export class HousingService {
-  url='http://localhost:3000/locations'
+  url='https://suraj-i2e.github.io/homes_api/db.json/locations'
 
   constructor() { }
 
