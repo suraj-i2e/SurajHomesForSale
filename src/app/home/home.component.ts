@@ -26,12 +26,18 @@ export class HomeComponent {
  housingService:HousingService= inject(HousingService);
  filteredLocationList:HousingLocation[]=[];
 
- constructor(){
-  this.housingService.getAllHousingLocations().then((housingLocationList:HousingLocation[])=>{
-    this.housingLocationList= housingLocationList;
-    this.filteredLocationList=housingLocationList;
-  })
- }
+ // if using external api
+//  constructor(){
+//   this.housingService.getAllHousingLocations().then((housingLocationList:HousingLocation[])=>{
+//     this.housingLocationList= housingLocationList;
+//     this.filteredLocationList=housingLocationList;
+//   })
+//  }
+
+constructor(){
+  this.housingLocationList=this.housingService.getAllHousingLocations();
+  this.filteredLocationList=this.housingService.getAllHousingLocations();
+}
 
  filterResults(text:string){
     if(!text) this.filteredLocationList= this.housingLocationList;
